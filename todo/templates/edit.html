@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Todo List
+{% endblock %}
+
+{% block content %}
+<h1 align="center">Edit your todo</h1>
+<div class="container mt-5">
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="inputtask" class="form-label">Task</label>
+        <input type="todotask" name="task" value="{{todo.task}}" class="form-control" id="inputtask" aria-describedby="taskhelp" required placeholder="Your todo task here!">
+        <div id="inputtask" class="form-text"></div>
+      </div>
+      <div class="mb-3">
+        <label for="inputdescription" class="form-label">Todo Desctiption</label>
+        <input type="desctiption" name="description" value="{{todo.description}}" class="form-control" id="inputdescription" required placeholder="Enter description here!">
+      </div>
+      <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input type="date" name="date" value="{{todo.date}}" class="form-control" id="date" required>
+        </div>
+    <button type="submit" name="save" class="btn btn-primary">Save</button>
+    <a href="/todos" class="btn btn-danger">Cancel</a>
+</form>
+</div>
+{% endblock %}
